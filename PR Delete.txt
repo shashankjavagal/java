@@ -1,0 +1,19 @@
+package fileHandling;
+
+import java.io.File;
+import java.util.Scanner;
+
+public class DeleteFile {
+		public void DeleteFile() {						
+				Scanner sc = new Scanner( System.in );
+				System.out.println("Enter File Path to be deleted");
+	            String delPath = sc.nextLine(); // Takes the directory path as the user input
+	            
+	            File fileName = new File(delPath);
+		            if(fileName.delete()) {
+		            	System.out.println(fileName.getName() + " deleted");
+		            } else  {  
+		            	System.out.println("Deletion failed. File not found");
+		            }	
+			    }	
+}

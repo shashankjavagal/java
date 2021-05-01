@@ -1,0 +1,33 @@
+package fileHandling;
+
+import java.io.*;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class SortingFiles {
+		public void ListFiles() {
+			 @SuppressWarnings("resource")
+			Scanner sf = new Scanner( System.in );
+	            System.out.println("Enter the file path: ");
+	            String dirPath = sf.nextLine(); // Takes the directory path as the user input
+
+	            File folder = new File(dirPath);
+	            if(folder.isDirectory())
+	            {
+	                File[] fileList = folder.listFiles();
+	                Arrays.sort(fileList);
+	                System.out.println("\nTotal number of items present in the directory: " + fileList.length );
+
+	                //Prints the files in file name ascending order
+	                for(File file:fileList)
+	                {
+	                    System.out.println(file.getName());
+	                }
+
+	            } else {
+	            	System.out.println("Please enter valid Path");
+	            	System.out.println("---------------------------------");
+	            	ListFiles();
+	            }
+	      }
+}

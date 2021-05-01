@@ -1,0 +1,64 @@
+package fileHandling;
+
+import java.util.Scanner;
+
+public class FilesOperations {
+	public static int option=0;
+	public void welcomeFunction() {
+		Scanner sc =new Scanner(System.in); 
+		System.out.println("Welcome To Project LockedMe \nDeveloper: Shashank J H \nContact: shashankjavgal@gmail.com \n-------------------------------------");
+		System.out.println("Please select given options in order to perform File Handling Operations"+"\n"+
+		                   " 1 : List File"+"\n"+
+				           " 2 : Add File"+"\n"+
+		                   " 3 : Delete File"+"\n"+
+				           " 4 : Search File"+"\n"+
+		                   " 5 : Close the Application"+"\n"+"----------------------------------------");
+	     System.out.println("Select your option to be performed"); 
+	     try {
+		    option=sc.nextInt();
+		    if(option==1)
+			{
+			   SortingFiles sort = new SortingFiles();
+			   sort.ListFiles();	
+			}
+			if(option==2)
+			{
+				AddNewFile add = new AddNewFile();
+				add.AddFile();			
+			}
+			if(option==3)
+			{
+				DeleteFile delete = new DeleteFile();
+				delete.DeleteFile();
+			}
+			if(option==4)
+			{
+				SearchFile search = new SearchFile();
+				search.getFile();
+			}
+			if(option==5)
+			{
+				welcomeFunction();
+			}
+			if(option==0 || option>5)
+			{
+				System.out.println("Please enter valid option");
+				System.out.println("---------------------------------");
+				welcomeFunction();
+			}
+		       sc.close();  
+			}
+			catch(IllegalStateException ex)
+			{
+				ex.getMessage();
+			}
+			
+
+	}	
+	public static void main(String[] args) 
+	{	
+		FilesOperations fp =new FilesOperations();
+		fp.welcomeFunction();
+			
+	}
+}
